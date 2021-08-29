@@ -11,7 +11,7 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class LoginPayload {
     @NotBlank
-    private String usernameOrEmail;
+    private String username;
 
     @NotBlank
     private String password;
