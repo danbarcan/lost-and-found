@@ -21,13 +21,11 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @CrossOrigin(origins = "http://localhost:5001")
     @PostMapping("/signin")
     public ResponseEntity<JwtAuthenticationResponse> authenticateUser(@Valid @RequestBody LoginPayload loginRequest) {
         return authService.authenticateUser(loginRequest);
     }
 
-    @CrossOrigin(origins = "http://localhost:5001")
     @PostMapping("/signup")
     public ResponseEntity<ApiResponse> registerUser(@Valid @RequestBody SignUpPayload signUpPayload) {
         return authService.registerUser(signUpPayload);
