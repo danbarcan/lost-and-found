@@ -24,31 +24,26 @@ public class ChatController {
     }
 
     @PostMapping("/chat")
-    //@PreAuthorize("hasRole('USER') OR hasRole('ADMIN') OR hasRole('SERVICE')")
     public ResponseEntity<List<ChatMessage>> postMessage(@Valid @RequestBody ChatMessagePayload chatMessagePayload) {
         return chatService.postMessage(chatMessagePayload);
     }
 
     @GetMapping("/chat/{itemId}")
-    //@PreAuthorize("hasRole('USER') OR hasRole('ADMIN') OR hasRole('SERVICE')")
     public ResponseEntity<List<ChatMessage>> getMessagesByJobId(@PathVariable(value = "itemId") Long itemId) {
         return chatService.getMessagesByJobId(itemId);
     }
 
     @GetMapping("/chat/unread")
-    //@PreAuthorize("hasRole('USER') OR hasRole('ADMIN') OR hasRole('SERVICE')")
     public ResponseEntity<Map<Long, Long>> getUnreadMessagesByJob() {
         return chatService.getUnreadMessagesByJob();
     }
 
     @GetMapping("/chat")
-    //@PreAuthorize("hasRole('USER') OR hasRole('ADMIN') OR hasRole('SERVICE')")
     public ResponseEntity<Map<Long, List<ChatMessage>>> getMessagesGroupByJob() {
         return chatService.getMessagesGroupByJob();
     }
 
     @GetMapping("/chat/items")
-    //@PreAuthorize("hasRole('USER') OR hasRole('ADMIN') OR hasRole('SERVICE')")
     public ResponseEntity<List<Item>> getAllJobsWithMessages() {
         return chatService.getAllJobsWithMessages();
     }
